@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MHR Stands | Construção de Stands e Cenografia</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Configuração de Cores do Tailwind -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#2b313d',
+                            teal: '#11aaa2',
+                            tealLight: '#14c5bc',
+                            darker: '#1f242d',
+                            gray: '#f3f4f6'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .dark ::-webkit-scrollbar-track {
+            background: #1f242d;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #11aaa2;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0d8a83;
+        }
+
+        /* Hero Background Pattern */
+        .hero-bg {
+            background-color: #ffffff;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2311aaa2' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .dark .hero-bg {
+            background-color: #2b313d;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2311aaa2' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Text Gradient */
+        .text-gradient {
+            background: linear-gradient(90deg, #2b313d 0%, #11aaa2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .dark .text-gradient {
+            background: linear-gradient(90deg, #ffffff 0%, #11aaa2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Image Hover Zoom */
+        .portfolio-item {
+            overflow: hidden;
+        }
+        .portfolio-item img {
+            transition: transform 0.5s ease;
+        }
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Glassmorphism for Navbar on Scroll */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .dark .glass-nav {
+            background: rgba(43, 49, 61, 0.9);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+    </style>
+</head>
+<body class="text-brand-dark dark:text-gray-100 bg-white dark:bg-brand-dark transition-colors duration-300">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="text-2xl font-bold tracking-tighter flex items-center gap-2">
+                <div class="w-8 h-8 bg-brand-teal rounded-lg transform rotate-45 flex items-center justify-center">
+                    <div class="w-4 h-4 bg-white dark:bg-brand-dark transform -rotate-45"></div>
+                </div>
+                <span class="text-brand-dark dark:text-white">MHR <span class="text-brand-teal">Stands</span></span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-8 font-medium">
+                <a href="#home" class="hover:text-brand-teal transition-colors">Início</a>
+                <a href="#about" class="hover:text-brand-teal transition-colors">Sobre</a>
+                <a href="#services" class="hover:text-brand-teal transition-colors">Serviços</a>
+                <a href="#portfolio" class="hover:text-brand-teal transition-colors">Portfólio</a>
+                <a href="#contact" class="px-6 py-2 bg-brand-teal text-white rounded-full hover:bg-brand-tealLight transition-all shadow-lg hover:shadow-brand-teal/50">Orçamento</a>
+                
+                <!-- Dark Mode Toggle -->
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i class="fas fa-moon text-brand-dark dark:text-yellow-400 text-xl"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Button -->
+            <div class="md:hidden flex items-center gap-4">
+                <button id="theme-toggle-mobile" class="text-brand-teal">
+                    <i class="fas fa-moon text-xl"></i>
+                </button>
+                <button id="mobile-menu-btn" class="text-brand-dark dark:text-white focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-brand-darker border-t dark:border-gray-800">
+            <div class="flex flex-col px-6 py-4 space-y-4">
+                <a href="#home" class="mobile-link block hover:text-brand-teal">Início</a>
+                <a href="#about" class="mobile-link block hover:text-brand-teal">Sobre</a>
+                <a href="#services" class="mobile-link block hover:text-brand-teal">Serviços</a>
+                <a href="#portfolio" class="mobile-link block hover:text-brand-teal">Portfólio</a>
+                <a href="#contact" class="block text-brand-teal font-bold">Solicitar Orçamento</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden hero-bg">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2" data-aos="fade-right" data-aos-duration="1000">
+                    <span class="inline-block py-1 px-3 rounded-full bg-brand-teal/10 text-brand-teal font-semibold text-sm mb-6 border border-brand-teal/20">
+                        Especialistas em Cenografia
+                    </span>
+                    <h1 class="text-4xl lg:text-6xl font-extrabold leading-tight mb-6">
+                        Construímos Espaços que <span class="text-gradient">Marcam Presença</span>
+                    </h1>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+                        Do design à montagem, criamos stands impactantes que transformam visitantes em clientes. A qualidade que sua marca merece.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#portfolio" class="px-8 py-4 bg-brand-teal text-white font-bold rounded-lg hover:bg-brand-tealLight transition-all shadow-lg shadow-brand-teal/30 text-center">
+                            Ver Nossos Projetos
+                        </a>
+                        <a href="#contact" class="px-8 py-4 border-2 border-brand-dark dark:border-white text-brand-dark dark:text-white font-bold rounded-lg hover:bg-brand-dark hover:text-white dark:hover:bg-white dark:hover:text-brand-dark transition-all text-center">
+                            Falar com Consultor
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 relative" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white dark:border-brand-darker transform rotate-2 hover:rotate-0 transition-transform duration-500">
+                        <img src="https://images.unsplash.com/photo-1531973576160-7125cd663d86?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Stand Moderno" class="w-full h-auto object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/80 to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <p class="font-bold text-xl">Expo Future 2024</p>
+                            <p class="text-sm text-brand-teal">Stand Premium</p>
+                        </div>
+                    </div>
+                    <!-- Floating Badge -->
+                    <div class="absolute -bottom-6 -left-6 bg-white dark:bg-brand-darker p-4 rounded-xl shadow-xl flex items-center gap-3 animate-bounce hidden md:flex">
+                        <div class="bg-brand-teal/20 p-2 rounded-full">
+                            <i class="fas fa-award text-brand-teal text-2xl"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold text-brand-dark dark:text-white">Top Rated</p>
+                            <p class="text-xs text-gray-500">Design de Excelência</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Background Elements -->
+        <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-brand-teal/5 to-transparent -z-0"></div>
+    </section>
+
+    <!-- Stats Section -->
+    <div class="bg-brand-dark py-12 border-t border-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
+                <div data-aos="zoom-in" data-aos-delay="0">
+                    <div class="text-4xl font-bold text-brand-teal mb-2 counter" data-target="30">0</div>
+                    <div class="text-sm text-gray-400 uppercase tracking-wider">Anos de Mercado</div>
+                </div>
+                <div data-aos="zoom-in" data-aos-delay="100">
+                    <div class="text-4xl font-bold text-brand-teal mb-2 counter" data-target="350">0</div>
+                    <div class="text-sm text-gray-400 uppercase tracking-wider">Projetos Entregues</div>
+                </div>
+                <div data-aos="zoom-in" data-aos-delay="200">
+                    <div class="text-4xl font-bold text-brand-teal mb-2 counter" data-target="98">0</div>
+                    <div class="text-sm text-gray-400 uppercase tracking-wider">% Clientes Satisfeitos</div>
+                </div>
+                <div data-aos="zoom-in" data-aos-delay="300">
+                    <div class="text-4xl font-bold text-brand-teal mb-2 counter" data-target="12">0</div>
+                    <div class="text-sm text-gray-400 uppercase tracking-wider">Prêmios de Design</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white dark:bg-brand-dark overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2" data-aos="fade-right">
+                    <div class="relative">
+                         <div class="absolute -top-4 -left-4 w-24 h-24 bg-brand-teal rounded-full opacity-20 -z-10"></div>
+                         <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Equipe MHR Stands" class="rounded-2xl shadow-2xl border-4 border-white dark:border-brand-darker">
+                         <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-brand-darker rounded-full opacity-10 -z-10"></div>
+                    </div>
+                </div>
+                <div class="md:w-1/2" data-aos="fade-left">
+                    <h2 class="text-brand-teal font-bold uppercase tracking-wider mb-2">Quem Somos</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold text-brand-dark dark:text-white mb-6">MHR Stands</h3>
+                    
+                    <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                        Somos uma empresa especializada na montagem de <strong>Stands em eventos, Showroom, Quiosques e Displays</strong> em diversos segmentos do mercado.
+                    </p>
+                    
+                    <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                        A <strong>MHR Stands</strong> foi criada com o objetivo de proporcionar ao cliente uma experiência única, desde o primeiro atendimento até a execução final do trabalho.
+                    </p>
+
+                    <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                        Atuamos <strong>há mais de 30 anos no mercado</strong> na área de desenvolvimento de projetos, execução e entrega de trabalhos. Nossa bagagem inclui projetos desenvolvidos em diversas montadoras do ramo de eventos, garantindo vasta experiência e profissionais capacitados para atender sua demanda.
+                    </p>
+
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-3 text-brand-dark dark:text-gray-200">
+                            <i class="fas fa-check-circle text-brand-teal text-xl"></i>
+                            <span>Especialistas em Shows e Eventos</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-brand-dark dark:text-gray-200">
+                            <i class="fas fa-check-circle text-brand-teal text-xl"></i>
+                            <span>Equipe Técnica Capacitada</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-brand-dark dark:text-gray-200">
+                            <i class="fas fa-check-circle text-brand-teal text-xl"></i>
+                            <span>Mais de 30 Anos de História</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-brand-gray dark:bg-brand-darker">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-brand-teal font-bold uppercase tracking-wider mb-2">O que fazemos</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-brand-dark dark:text-white">Soluções Completas para seu Evento</h3>
+                <div class="w-20 h-1 bg-brand-teal mx-auto mt-4 rounded"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white dark:bg-brand-dark p-8 rounded-2xl shadow-lg hover:-translate-y-2 transition-transform duration-300 border-b-4 border-transparent hover:border-brand-teal group" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-14 h-14 bg-brand-teal/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-brand-teal transition-colors">
+                        <i class="fas fa-pencil-ruler text-2xl text-brand-teal group-hover:text-white"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4 dark:text-white">Design & Projeto 3D</h4>
+                    <p class="text-gray-600 dark:text-gray-400">Desenvolvemos projetos exclusivos com renderização 3D realista para que você visualize cada detalhe antes da montagem.</p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-white dark:bg-brand-dark p-8 rounded-2xl shadow-lg hover:-translate-y-2 transition-transform duration-300 border-b-4 border-transparent hover:border-brand-teal group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 bg-brand-teal/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-brand-teal transition-colors">
+                        <i class="fas fa-hammer text-2xl text-brand-teal group-hover:text-white"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4 dark:text-white">Construção & Montagem</h4>
+                    <p class="text-gray-600 dark:text-gray-400">Equipe especializada em marcenaria, elétrica e acabamento. Garantimos a entrega pontual e acabamento impecável.</p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-white dark:bg-brand-dark p-8 rounded-2xl shadow-lg hover:-translate-y-2 transition-transform duration-300 border-b-4 border-transparent hover:border-brand-teal group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 bg-brand-teal/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-brand-teal transition-colors">
+                        <i class="fas fa-truck-loading text-2xl text-brand-teal group-hover:text-white"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4 dark:text-white">Logística & Suporte</h4>
+                    <p class="text-gray-600 dark:text-gray-400">Cuidamos de todo o transporte, documentação do evento e suporte técnico durante a feira para sua tranquilidade.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-white dark:bg-brand-dark">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12" data-aos="fade-right">
+                <div>
+                    <h2 class="text-brand-teal font-bold uppercase tracking-wider mb-2">Nosso Trabalho</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold text-brand-dark dark:text-white">Últimos Projetos Realizados</h3>
+                </div>
+                <a href="#" class="hidden md:flex items-center gap-2 text-brand-teal font-semibold hover:gap-4 transition-all mt-4 md:mt-0">
+                    Ver Galeria Completa <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Project 1 -->
+                <div class="group relative rounded-xl overflow-hidden cursor-pointer portfolio-item" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Stand Tech" class="w-full h-80 object-cover">
+                    <div class="absolute inset-0 bg-brand-dark/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-4">
+                        <h4 class="text-white text-2xl font-bold translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Tech Summit 2023</h4>
+                        <p class="text-brand-teal mt-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">Cenografia Digital</p>
+                        <button class="mt-6 px-4 py-2 bg-white text-brand-dark rounded-full text-sm font-bold translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-100">Ver Detalhes</button>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="group relative rounded-xl overflow-hidden cursor-pointer portfolio-item" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Stand Corporate" class="w-full h-80 object-cover">
+                    <div class="absolute inset-0 bg-brand-dark/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-4">
+                        <h4 class="text-white text-2xl font-bold translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Finance Expo</h4>
+                        <p class="text-brand-teal mt-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">Stand Corporativo</p>
+                        <button class="mt-6 px-4 py-2 bg-white text-brand-dark rounded-full text-sm font-bold translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-100">Ver Detalhes</button>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="group relative rounded-xl overflow-hidden cursor-pointer portfolio-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute top-4 right-4 z-10 bg-brand-teal text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">Premiado</div>
+                    <img src="https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Stand Industrial" class="w-full h-80 object-cover">
+                    <div class="absolute inset-0 bg-brand-dark/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-4">
+                        <h4 class="text-white text-2xl font-bold translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Indústria 4.0</h4>
+                        <p class="text-brand-teal mt-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">Estrutura Modular</p>
+                        <button class="mt-6 px-4 py-2 bg-white text-brand-dark rounded-full text-sm font-bold translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-100">Ver Detalhes</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8 md:hidden">
+                 <a href="#" class="inline-flex items-center gap-2 text-brand-teal font-semibold">
+                    Ver Galeria Completa <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-brand-teal relative overflow-hidden">
+        <div class="absolute inset-0 bg-pattern opacity-10" style="background-image: radial-gradient(#fff 2px, transparent 2px); background-size: 30px 30px;"></div>
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <h2 class="text-3xl md:text-5xl font-bold text-white mb-6" data-aos="zoom-in">Pronto para destacar sua marca?</h2>
+            <p class="text-white/90 text-lg mb-8 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">Não deixe para a última hora. Garanta o melhor design e planejamento para sua próxima feira ou evento.</p>
+            <a href="#contact" class="inline-block px-10 py-4 bg-white text-brand-teal font-bold rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                Solicitar Orçamento Grátis
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-brand-gray dark:bg-brand-darker">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Info -->
+                <div data-aos="fade-right">
+                    <h2 class="text-brand-teal font-bold uppercase tracking-wider mb-2">Fale Conosco</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold text-brand-dark dark:text-white mb-6">Vamos tirar seu projeto do papel</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-8">Preencha o formulário e um de nossos consultores entrará em contato em até 24 horas.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-white dark:bg-brand-dark rounded-full flex items-center justify-center text-brand-teal shadow-md">
+                                <i class="fas fa-map-marker-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brand-dark dark:text-white">Localização</h4>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm">Av. das Nações, 1500 - São Paulo, SP</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-white dark:bg-brand-dark rounded-full flex items-center justify-center text-brand-teal shadow-md">
+                                <i class="fas fa-phone-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brand-dark dark:text-white">Telefone</h4>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm">+55 (11) 9999-9999</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-white dark:bg-brand-dark rounded-full flex items-center justify-center text-brand-teal shadow-md">
+                                <i class="fas fa-envelope text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brand-dark dark:text-white">Email</h4>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm">contato@mhrstands.com.br</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <div class="bg-white dark:bg-brand-dark p-8 rounded-2xl shadow-xl relative" data-aos="fade-left">
+                    <div class="absolute -top-4 -right-4 w-20 h-20 bg-brand-teal rounded-full opacity-20 blur-2xl"></div>
+                    <form onsubmit="event.preventDefault(); alert('Obrigado! Entraremos em contato em breve.');">
+                        <div class="mb-6">
+                            <label class="block text-sm font-bold text-brand-dark dark:text-gray-300 mb-2">Nome Completo</label>
+                            <input type="text" class="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-brand-darker border border-gray-200 dark:border-gray-700 text-brand-dark dark:text-white focus:outline-none focus:border-brand-teal transition-colors" placeholder="Seu nome" required>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-sm font-bold text-brand-dark dark:text-gray-300 mb-2">Email Corporativo</label>
+                            <input type="email" class="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-brand-darker border border-gray-200 dark:border-gray-700 text-brand-dark dark:text-white focus:outline-none focus:border-brand-teal transition-colors" placeholder="seu@email.com" required>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-sm font-bold text-brand-dark dark:text-gray-300 mb-2">Detalhes do Projeto</label>
+                            <textarea class="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-brand-darker border border-gray-200 dark:border-gray-700 text-brand-dark dark:text-white focus:outline-none focus:border-brand-teal transition-colors h-32" placeholder="Tamanho do stand, data do evento..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-4 bg-brand-dark text-white font-bold rounded-lg hover:bg-brand-teal transition-colors duration-300 shadow-lg">
+                            Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-darker text-white pt-16 pb-8 border-t border-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div class="col-span-1 md:col-span-1">
+                    <a href="#" class="text-2xl font-bold tracking-tighter flex items-center gap-2 mb-4">
+                        <div class="w-6 h-6 bg-brand-teal rounded transform rotate-45"></div>
+                        <span>MHR <span class="text-brand-teal">Stands</span></span>
+                    </a>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Transformando espaços vazios em experiências de marca inesquecíveis. Líder em construção de stands e cenografia.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Links Rápidos</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-brand-teal transition-colors">Sobre Nós</a></li>
+                        <li><a href="#" class="hover:text-brand-teal transition-colors">Nossos Serviços</a></li>
+                        <li><a href="#" class="hover:text-brand-teal transition-colors">Portfólio</a></li>
+                        <li><a href="#" class="hover:text-brand-teal transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Legal</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-brand-teal transition-colors">Política de Privacidade</a></li>
+                        <li><a href="#" class="hover:text-brand-teal transition-colors">Termos de Uso</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Siga-nos</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-teal transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-teal transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-teal transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+                <p>&copy; 2024 MHR Stands. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Init AOS Animation
+        AOS.init({
+            once: true,
+            offset: 100,
+            duration: 800,
+            easing: 'ease-out-cubic',
+        });
+
+        // Dark Mode Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+        const darkIcon = '<i class="fas fa-moon text-brand-dark dark:text-yellow-400 text-xl"></i>';
+        const lightIcon = '<i class="fas fa-sun text-yellow-500 text-xl"></i>';
+
+        function toggleTheme() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+                updateIcons(false);
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                updateIcons(true);
+            }
+        }
+
+        function updateIcons(isDark) {
+            const icon = isDark ? lightIcon : darkIcon;
+            themeToggleBtn.innerHTML = icon;
+            themeToggleMobile.innerHTML = isDark ? '<i class="fas fa-sun text-yellow-500 text-xl"></i>' : '<i class="fas fa-moon text-xl"></i>';
+        }
+
+        // Check local storage or preference
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            updateIcons(true);
+        } else {
+            document.documentElement.classList.remove('dark');
+            updateIcons(false);
+        }
+
+        themeToggleBtn.addEventListener('click', toggleTheme);
+        themeToggleMobile.addEventListener('click', toggleTheme);
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('glass-nav', 'py-2');
+                navbar.classList.remove('py-4');
+            } else {
+                navbar.classList.remove('glass-nav', 'py-2');
+                navbar.classList.add('py-4');
+            }
+        });
+
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Number Counter Animation
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200; // The lower the slower
+
+        const animateCounters = () => {
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText;
+                    const inc = target / speed;
+
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + inc);
+                        setTimeout(updateCount, 20);
+                    } else {
+                        counter.innerText = target + (target > 90 && target < 100 ? '%' : '+');
+                    }
+                };
+                updateCount();
+            });
+        }
+
+        // Trigger counter when in view
+        let counted = false;
+        const statsSection = document.querySelector('.bg-brand-dark');
+        
+        window.addEventListener('scroll', () => {
+            if(!counted && window.scrollY + window.innerHeight > statsSection.offsetTop) {
+                animateCounters();
+                counted = true;
+            }
+        });
+
+    </script>
+</body>
+</html>
