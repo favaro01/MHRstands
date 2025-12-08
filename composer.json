@@ -1,0 +1,11 @@
+{
+    "name": "mhrstands/website",
+    "description": "MHR Stands - Website Institucional",
+    "type": "project",
+    "require": {
+        "phpmailer/phpmailer": "^6.8"
+    },
+    "config": {
+        "optimize-autoloader": true
+    }
+}

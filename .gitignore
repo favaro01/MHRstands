@@ -1,0 +1,16 @@
+# PHPMailer (já está incluído no repositório)
+# /phpmailer/
+
+# Configurações locais
+config.php
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Arquivos temporários
+*.zip
+*.tar.gz
