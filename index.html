@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-br" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MHR Stands | Construção de Stands e Cenografia</title>
-    
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <!-- AOS Animation CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
@@ -44,21 +45,25 @@
         body {
             font-family: 'Inter', sans-serif;
         }
-        
+
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 10px;
         }
+
         ::-webkit-scrollbar-track {
             background: #f1f1f1;
         }
+
         .dark ::-webkit-scrollbar-track {
             background: #1f242d;
         }
+
         ::-webkit-scrollbar-thumb {
             background: #11aaa2;
             border-radius: 5px;
         }
+
         ::-webkit-scrollbar-thumb:hover {
             background: #0d8a83;
         }
@@ -68,6 +73,7 @@
             background-color: #ffffff;
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2311aaa2' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
+
         .dark .hero-bg {
             background-color: #2b313d;
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2311aaa2' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
@@ -79,6 +85,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
         .dark .text-gradient {
             background: linear-gradient(90deg, #ffffff 0%, #11aaa2 100%);
             -webkit-background-clip: text;
@@ -89,9 +96,11 @@
         .portfolio-item {
             overflow: hidden;
         }
+
         .portfolio-item img {
             transition: transform 0.5s ease;
         }
+
         .portfolio-item:hover img {
             transform: scale(1.1);
         }
@@ -102,12 +111,14 @@
             backdrop-filter: blur(10px);
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
+
         .dark .glass-nav {
             background: rgba(43, 49, 61, 0.9);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
     </style>
 </head>
+
 <body class="text-brand-dark dark:text-gray-100 bg-white dark:bg-brand-dark transition-colors duration-300">
 
     <!-- Navigation -->
@@ -124,10 +135,12 @@
                 <a href="#about" class="hover:text-brand-teal transition-colors">Sobre</a>
                 <a href="#services" class="hover:text-brand-teal transition-colors">Serviços</a>
                 <a href="#portfolio" class="hover:text-brand-teal transition-colors">Portfólio</a>
-                <a href="#contact" class="px-6 py-2 bg-brand-teal text-white rounded-full hover:bg-brand-tealLight transition-all shadow-lg hover:shadow-brand-teal/50">Orçamento</a>
-                
+                <a href="#contact"
+                    class="px-6 py-2 bg-brand-teal text-white rounded-full hover:bg-brand-tealLight transition-all shadow-lg hover:shadow-brand-teal/50">Orçamento</a>
+
                 <!-- Dark Mode Toggle -->
-                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                <button id="theme-toggle"
+                    class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
                     <i class="fas fa-moon text-brand-dark dark:text-yellow-400 text-xl"></i>
                 </button>
             </div>
@@ -160,35 +173,41 @@
         <div class="container mx-auto px-6 relative z-10">
             <div class="flex flex-col lg:flex-row items-center gap-12">
                 <div class="lg:w-1/2" data-aos="fade-right" data-aos-duration="1000">
-                    <span class="inline-block py-1 px-3 rounded-full bg-brand-teal/10 text-brand-teal font-semibold text-sm mb-6 border border-brand-teal/20">
+                    <span
+                        class="inline-block py-1 px-3 rounded-full bg-brand-teal/10 text-brand-teal font-semibold text-sm mb-6 border border-brand-teal/20">
                         Especialistas em Cenografia
                     </span>
                     <h1 class="text-4xl lg:text-6xl font-extrabold leading-tight mb-6">
                         Construímos Espaços que <span class="text-brand-teal">Marcam Presença</span>
                     </h1>
                     <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-                        Do design à montagem, criamos stands impactantes que transformam visitantes em clientes. A qualidade que sua marca merece.
+                        Do design à montagem, criamos stands impactantes que transformam visitantes em clientes. A
+                        qualidade que sua marca merece.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="#portfolio" class="px-8 py-4 bg-brand-teal text-white font-bold rounded-lg hover:bg-brand-tealLight transition-all shadow-lg shadow-brand-teal/30 text-center">
+                        <a href="#portfolio"
+                            class="px-8 py-4 bg-brand-teal text-white font-bold rounded-lg hover:bg-brand-tealLight transition-all shadow-lg shadow-brand-teal/30 text-center">
                             Ver Nossos Projetos
                         </a>
-                        <a href="#contact" class="px-8 py-4 border-2 border-brand-dark dark:border-white text-brand-dark dark:text-white font-bold rounded-lg hover:bg-brand-dark hover:text-white dark:hover:bg-white dark:hover:text-brand-dark transition-all text-center">
+                        <a href="#contact"
+                            class="px-8 py-4 border-2 border-brand-dark dark:border-white text-brand-dark dark:text-white font-bold rounded-lg hover:bg-brand-dark hover:text-white dark:hover:bg-white dark:hover:text-brand-dark transition-all text-center">
                             Falar com Consultor
                         </a>
                     </div>
                 </div>
                 <div class="lg:w-1/2 relative" data-aos="fade-left" data-aos-duration="1000">
-                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white dark:border-brand-darker transform rotate-2 hover:rotate-0 transition-transform duration-500">
-                        <img src="https://images.unsplash.com/photo-1531973576160-7125cd663d86?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Stand Moderno" class="w-full h-auto object-cover">
+                    <div
+                        class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white dark:border-brand-darker transform rotate-2 hover:rotate-0 transition-transform duration-500">
+                        <img src="image/projects/FC.jpeg" alt="Stand FC" class="w-full h-auto object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/80 to-transparent"></div>
                         <div class="absolute bottom-6 left-6 text-white">
-                            <p class="font-bold text-xl">Expo Future 2024</p>
+                            <p class="font-bold text-xl">FC</p>
                             <p class="text-sm text-brand-teal">Stand Premium</p>
                         </div>
                     </div>
                     <!-- Floating Badge -->
-                    <div class="absolute -bottom-6 -left-6 bg-white dark:bg-brand-darker p-4 rounded-xl shadow-xl flex items-center gap-3 animate-bounce hidden md:flex">
+                    <div
+                        class="absolute -bottom-6 -left-6 bg-white dark:bg-brand-darker p-4 rounded-xl shadow-xl flex items-center gap-3 animate-bounce hidden md:flex">
                         <div class="bg-brand-teal/20 p-2 rounded-full">
                             <i class="fas fa-award text-brand-teal text-2xl"></i>
                         </div>
@@ -200,7 +219,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Background Elements -->
         <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-brand-teal/5 to-transparent -z-0"></div>
     </section>
@@ -235,25 +254,34 @@
             <div class="flex flex-col md:flex-row items-center gap-12">
                 <div class="md:w-1/2" data-aos="fade-right">
                     <div class="relative">
-                         <div class="absolute -top-4 -left-4 w-24 h-24 bg-brand-teal rounded-full opacity-20 -z-10"></div>
-                         <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Equipe MHR Stands" class="rounded-2xl shadow-2xl border-4 border-white dark:border-brand-darker">
-                         <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-brand-darker rounded-full opacity-10 -z-10"></div>
+                        <div class="absolute -top-4 -left-4 w-24 h-24 bg-brand-teal rounded-full opacity-20 -z-10">
+                        </div>
+                        <img src="image/projects/Leistung1.png" alt="Leistung1 - MHR Stands"
+                            class="rounded-2xl shadow-2xl border-4 border-white dark:border-brand-darker">
+                        <div
+                            class="absolute -bottom-4 -right-4 w-32 h-32 bg-brand-darker rounded-full opacity-10 -z-10">
+                        </div>
                     </div>
                 </div>
                 <div class="md:w-1/2" data-aos="fade-left">
                     <h2 class="text-brand-teal font-bold uppercase tracking-wider mb-2">Quem Somos</h2>
                     <h3 class="text-3xl md:text-4xl font-bold text-brand-dark dark:text-white mb-6">MHR Stands</h3>
-                    
+
                     <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
-                        Somos uma empresa especializada na montagem de <strong>Stands em eventos, Showroom, Quiosques e Displays</strong> em diversos segmentos do mercado.
+                        Somos uma empresa especializada na montagem de <strong>Stands em eventos, Showroom, Quiosques e
+                            Displays</strong> em diversos segmentos do mercado.
                     </p>
-                    
+
                     <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
-                        A <strong>MHR Stands</strong> foi criada com o objetivo de proporcionar ao cliente uma experiência única, desde o primeiro atendimento até a execução final do trabalho.
+                        A <strong>MHR Stands</strong> foi criada com o objetivo de proporcionar ao cliente uma
+                        experiência única, desde o primeiro atendimento até a execução final do trabalho.
                     </p>
 
                     <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                        Atuamos <strong>há mais de 30 anos no mercado</strong> na área de desenvolvimento de projetos, execução e entrega de trabalhos. Nossa bagagem inclui projetos desenvolvidos em diversas montadoras do ramo de eventos, garantindo vasta experiência e profissionais capacitados para atender sua demanda.
+                        Atuamos <strong>há mais de 30 anos no mercado</strong> na área de desenvolvimento de projetos,
+                        execução e entrega de trabalhos. Nossa bagagem inclui projetos desenvolvidos em diversas
+                        montadoras do ramo de eventos, garantindo vasta experiência e profissionais capacitados para
+                        atender sua demanda.
                     </p>
 
                     <ul class="space-y-4 mb-8">
@@ -280,36 +308,46 @@
         <div class="container mx-auto px-6">
             <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-brand-teal font-bold uppercase tracking-wider mb-2">O que fazemos</h2>
-                <h3 class="text-3xl md:text-4xl font-bold text-brand-dark dark:text-white">Soluções Completas para seu Evento</h3>
+                <h3 class="text-3xl md:text-4xl font-bold text-brand-dark dark:text-white">Soluções Completas para seu
+                    Evento</h3>
                 <div class="w-20 h-1 bg-brand-teal mx-auto mt-4 rounded"></div>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Service 1 -->
-                <div class="bg-white dark:bg-brand-dark p-8 rounded-2xl shadow-lg hover:-translate-y-2 transition-transform duration-300 border-b-4 border-transparent hover:border-brand-teal group" data-aos="fade-up" data-aos-delay="0">
-                    <div class="w-14 h-14 bg-brand-teal/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-brand-teal transition-colors">
+                <div class="bg-white dark:bg-brand-dark p-8 rounded-2xl shadow-lg hover:-translate-y-2 transition-transform duration-300 border-b-4 border-transparent hover:border-brand-teal group"
+                    data-aos="fade-up" data-aos-delay="0">
+                    <div
+                        class="w-14 h-14 bg-brand-teal/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-brand-teal transition-colors">
                         <i class="fas fa-pencil-ruler text-2xl text-brand-teal group-hover:text-white"></i>
                     </div>
                     <h4 class="text-xl font-bold mb-4 dark:text-white">Design & Projeto 3D</h4>
-                    <p class="text-gray-600 dark:text-gray-400">Desenvolvemos projetos exclusivos com renderização 3D realista para que você visualize cada detalhe antes da montagem.</p>
+                    <p class="text-gray-600 dark:text-gray-400">Desenvolvemos projetos exclusivos com renderização 3D
+                        realista para que você visualize cada detalhe antes da montagem.</p>
                 </div>
 
                 <!-- Service 2 -->
-                <div class="bg-white dark:bg-brand-dark p-8 rounded-2xl shadow-lg hover:-translate-y-2 transition-transform duration-300 border-b-4 border-transparent hover:border-brand-teal group" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-14 h-14 bg-brand-teal/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-brand-teal transition-colors">
+                <div class="bg-white dark:bg-brand-dark p-8 rounded-2xl shadow-lg hover:-translate-y-2 transition-transform duration-300 border-b-4 border-transparent hover:border-brand-teal group"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div
+                        class="w-14 h-14 bg-brand-teal/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-brand-teal transition-colors">
                         <i class="fas fa-hammer text-2xl text-brand-teal group-hover:text-white"></i>
                     </div>
                     <h4 class="text-xl font-bold mb-4 dark:text-white">Construção & Montagem</h4>
-                    <p class="text-gray-600 dark:text-gray-400">Equipe especializada em marcenaria, elétrica e acabamento. Garantimos a entrega pontual e acabamento impecável.</p>
+                    <p class="text-gray-600 dark:text-gray-400">Equipe especializada em marcenaria, elétrica e
+                        acabamento. Garantimos a entrega pontual e acabamento impecável.</p>
                 </div>
 
                 <!-- Service 3 -->
-                <div class="bg-white dark:bg-brand-dark p-8 rounded-2xl shadow-lg hover:-translate-y-2 transition-transform duration-300 border-b-4 border-transparent hover:border-brand-teal group" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-14 h-14 bg-brand-teal/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-brand-teal transition-colors">
+                <div class="bg-white dark:bg-brand-dark p-8 rounded-2xl shadow-lg hover:-translate-y-2 transition-transform duration-300 border-b-4 border-transparent hover:border-brand-teal group"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div
+                        class="w-14 h-14 bg-brand-teal/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-brand-teal transition-colors">
                         <i class="fas fa-truck-loading text-2xl text-brand-teal group-hover:text-white"></i>
                     </div>
                     <h4 class="text-xl font-bold mb-4 dark:text-white">Logística & Suporte</h4>
-                    <p class="text-gray-600 dark:text-gray-400">Cuidamos de todo o transporte, documentação do evento e suporte técnico durante a feira para sua tranquilidade.</p>
+                    <p class="text-gray-600 dark:text-gray-400">Cuidamos de todo o transporte, documentação do evento e
+                        suporte técnico durante a feira para sua tranquilidade.</p>
                 </div>
             </div>
         </div>
@@ -318,64 +356,109 @@
     <!-- Portfolio Section -->
     <section id="portfolio" class="py-20 bg-white dark:bg-brand-dark">
         <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-12" data-aos="fade-right">
-                <div>
-                    <h2 class="text-brand-teal font-bold uppercase tracking-wider mb-2">Nosso Trabalho</h2>
-                    <h3 class="text-3xl md:text-4xl font-bold text-brand-dark dark:text-white">Últimos Projetos Realizados</h3>
-                </div>
-                <a href="#" class="hidden md:flex items-center gap-2 text-brand-teal font-semibold hover:gap-4 transition-all mt-4 md:mt-0">
-                    Ver Galeria Completa <i class="fas fa-arrow-right"></i>
-                </a>
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-brand-teal font-bold uppercase tracking-wider mb-2">Nosso Trabalho</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-brand-dark dark:text-white">Últimos Projetos Realizados
+                </h3>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Project 1 -->
+                <!-- Project 1 - FC -->
                 <div class="group relative rounded-xl overflow-hidden cursor-pointer portfolio-item" data-aos="fade-up">
-                    <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Stand Tech" class="w-full h-80 object-cover">
-                    <div class="absolute inset-0 bg-brand-dark/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-4">
-                        <h4 class="text-white text-2xl font-bold translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Tech Summit 2023</h4>
-                        <p class="text-brand-teal mt-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">Cenografia Digital</p>
-                        <button class="mt-6 px-4 py-2 bg-white text-brand-dark rounded-full text-sm font-bold translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-100">Ver Detalhes</button>
+                    <img src="image/projects/FC.jpeg" alt="Stand FC" class="w-full h-80 object-cover">
+                    <div
+                        class="absolute inset-0 bg-brand-dark/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-4">
+                        <h4 class="text-white text-3xl font-bold">FC</h4>
                     </div>
                 </div>
 
-                <!-- Project 2 -->
-                <div class="group relative rounded-xl overflow-hidden cursor-pointer portfolio-item" data-aos="fade-up" data-aos-delay="100">
-                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Stand Corporate" class="w-full h-80 object-cover">
-                    <div class="absolute inset-0 bg-brand-dark/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-4">
-                        <h4 class="text-white text-2xl font-bold translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Finance Expo</h4>
-                        <p class="text-brand-teal mt-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">Stand Corporativo</p>
-                        <button class="mt-6 px-4 py-2 bg-white text-brand-dark rounded-full text-sm font-bold translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-100">Ver Detalhes</button>
+                <!-- Project 2 - Leistung1 -->
+                <div class="group relative rounded-xl overflow-hidden cursor-pointer portfolio-item" data-aos="fade-up"
+                    data-aos-delay="100">
+                    <img src="image/projects/Leistung1.png" alt="Stand Leistung1" class="w-full h-80 object-cover">
+                    <div
+                        class="absolute inset-0 bg-brand-dark/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-4">
+                        <h4 class="text-white text-3xl font-bold">Leistung</h4>
                     </div>
                 </div>
 
-                <!-- Project 3 -->
-                <div class="group relative rounded-xl overflow-hidden cursor-pointer portfolio-item" data-aos="fade-up" data-aos-delay="200">
-                    <div class="absolute top-4 right-4 z-10 bg-brand-teal text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">Premiado</div>
-                    <img src="https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Stand Industrial" class="w-full h-80 object-cover">
-                    <div class="absolute inset-0 bg-brand-dark/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-4">
-                        <h4 class="text-white text-2xl font-bold translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Indústria 4.0</h4>
-                        <p class="text-brand-teal mt-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">Estrutura Modular</p>
-                        <button class="mt-6 px-4 py-2 bg-white text-brand-dark rounded-full text-sm font-bold translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-100">Ver Detalhes</button>
+                <!-- Project 3 - Ecofolhas -->
+                <div class="group relative rounded-xl overflow-hidden cursor-pointer portfolio-item" data-aos="fade-up"
+                    data-aos-delay="200">
+                    <img src="image/projects/ecofolhas.png" alt="Stand Ecofolhas" class="w-full h-80 object-cover">
+                    <div
+                        class="absolute inset-0 bg-brand-dark/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-4">
+                        <h4 class="text-white text-3xl font-bold">Ecofolhas</h4>
+                    </div>
+                </div>
+
+                <!-- Project 4 - Implastic -->
+                <div class="group relative rounded-xl overflow-hidden cursor-pointer portfolio-item" data-aos="fade-up"
+                    data-aos-delay="0">
+                    <img src="image/projects/implastic.jpeg" alt="Stand Implastic" class="w-full h-80 object-cover">
+                    <div
+                        class="absolute inset-0 bg-brand-dark/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-4">
+                        <h4 class="text-white text-3xl font-bold">Implastic</h4>
+                    </div>
+                </div>
+
+                <!-- Project 5 - Itubombas -->
+                <div class="group relative rounded-xl overflow-hidden cursor-pointer portfolio-item" data-aos="fade-up"
+                    data-aos-delay="100">
+                    <img src="image/projects/itubombas.png" alt="Stand Itubombas" class="w-full h-80 object-cover">
+                    <div
+                        class="absolute inset-0 bg-brand-dark/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-4">
+                        <h4 class="text-white text-3xl font-bold">Itubombas</h4>
+                    </div>
+                </div>
+
+                <!-- Project 6 - Ramos -->
+                <div class="group relative rounded-xl overflow-hidden cursor-pointer portfolio-item" data-aos="fade-up"
+                    data-aos-delay="200">
+                    <img src="image/projects/ramos.png" alt="Stand Ramos" class="w-full h-80 object-cover">
+                    <div
+                        class="absolute inset-0 bg-brand-dark/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-4">
+                        <h4 class="text-white text-3xl font-bold">Ramos</h4>
+                    </div>
+                </div>
+
+                <!-- Project 7 - Unilife -->
+                <div class="group relative rounded-xl overflow-hidden cursor-pointer portfolio-item" data-aos="fade-up"
+                    data-aos-delay="0">
+                    <img src="image/projects/unilife.png" alt="Stand Unilife" class="w-full h-80 object-cover">
+                    <div
+                        class="absolute inset-0 bg-brand-dark/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-4">
+                        <h4 class="text-white text-3xl font-bold">Unilife</h4>
+                    </div>
+                </div>
+
+                <!-- Project 8 - ZRZ -->
+                <div class="group relative rounded-xl overflow-hidden cursor-pointer portfolio-item" data-aos="fade-up"
+                    data-aos-delay="100">
+                    <img src="image/projects/zrz.png" alt="Stand ZRZ" class="w-full h-80 object-cover">
+                    <div
+                        class="absolute inset-0 bg-brand-dark/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-4">
+                        <h4 class="text-white text-3xl font-bold">ZRZ</h4>
                     </div>
                 </div>
             </div>
-            
-            <div class="text-center mt-8 md:hidden">
-                 <a href="#" class="inline-flex items-center gap-2 text-brand-teal font-semibold">
-                    Ver Galeria Completa <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
+
+
         </div>
     </section>
 
     <!-- CTA Section -->
     <section class="py-20 bg-brand-teal relative overflow-hidden">
-        <div class="absolute inset-0 bg-pattern opacity-10" style="background-image: radial-gradient(#fff 2px, transparent 2px); background-size: 30px 30px;"></div>
+        <div class="absolute inset-0 bg-pattern opacity-10"
+            style="background-image: radial-gradient(#fff 2px, transparent 2px); background-size: 30px 30px;"></div>
         <div class="container mx-auto px-6 relative z-10 text-center">
-            <h2 class="text-3xl md:text-5xl font-bold text-white mb-6" data-aos="zoom-in">Pronto para destacar sua marca?</h2>
-            <p class="text-white/90 text-lg mb-8 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">Não deixe para a última hora. Garanta o melhor design e planejamento para sua próxima feira ou evento.</p>
-            <a href="#contact" class="inline-block px-10 py-4 bg-white text-brand-teal font-bold rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+            <h2 class="text-3xl md:text-5xl font-bold text-white mb-6" data-aos="zoom-in">Pronto para destacar sua
+                marca?</h2>
+            <p class="text-white/90 text-lg mb-8 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">Não deixe
+                para a última hora. Garanta o melhor design e planejamento para sua próxima feira ou evento.</p>
+            <a href="#contact"
+                class="inline-block px-10 py-4 bg-white text-brand-teal font-bold rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
+                data-aos="fade-up" data-aos-delay="200">
                 Solicitar Orçamento Grátis
             </a>
         </div>
@@ -388,21 +471,26 @@
                 <!-- Info -->
                 <div data-aos="fade-right">
                     <h2 class="text-brand-teal font-bold uppercase tracking-wider mb-2">Fale Conosco</h2>
-                    <h3 class="text-3xl md:text-4xl font-bold text-brand-dark dark:text-white mb-6">Vamos tirar seu projeto do papel</h3>
-                    <p class="text-gray-600 dark:text-gray-400 mb-8">Preencha o formulário e um de nossos consultores entrará em contato em até 24 horas.</p>
-                    
+                    <h3 class="text-3xl md:text-4xl font-bold text-brand-dark dark:text-white mb-6">Vamos tirar seu
+                        projeto do papel</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-8">Preencha o formulário e um de nossos consultores
+                        entrará em contato em até 24 horas.</p>
+
                     <div class="space-y-6">
                         <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 bg-white dark:bg-brand-dark rounded-full flex items-center justify-center text-brand-teal shadow-md">
+                            <div
+                                class="w-12 h-12 bg-white dark:bg-brand-dark rounded-full flex items-center justify-center text-brand-teal shadow-md">
                                 <i class="fas fa-map-marker-alt text-xl"></i>
                             </div>
                             <div>
                                 <h4 class="font-bold text-brand-dark dark:text-white">Localização</h4>
-                                <p class="text-gray-600 dark:text-gray-400 text-sm">Av. das Nações, 1500 - São Paulo, SP</p>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm">Av. das Nações, 1500 - São Paulo, SP
+                                </p>
                             </div>
                         </div>
                         <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 bg-white dark:bg-brand-dark rounded-full flex items-center justify-center text-brand-teal shadow-md">
+                            <div
+                                class="w-12 h-12 bg-white dark:bg-brand-dark rounded-full flex items-center justify-center text-brand-teal shadow-md">
                                 <i class="fas fa-phone-alt text-xl"></i>
                             </div>
                             <div>
@@ -411,7 +499,8 @@
                             </div>
                         </div>
                         <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 bg-white dark:bg-brand-dark rounded-full flex items-center justify-center text-brand-teal shadow-md">
+                            <div
+                                class="w-12 h-12 bg-white dark:bg-brand-dark rounded-full flex items-center justify-center text-brand-teal shadow-md">
                                 <i class="fas fa-envelope text-xl"></i>
                             </div>
                             <div>
@@ -424,10 +513,12 @@
 
                 <!-- Form -->
                 <div class="bg-white dark:bg-brand-dark p-8 rounded-2xl shadow-xl relative" data-aos="fade-left">
-                    <div class="absolute -top-4 -right-4 w-20 h-20 bg-brand-teal rounded-full opacity-20 blur-2xl"></div>
-                    
+                    <div class="absolute -top-4 -right-4 w-20 h-20 bg-brand-teal rounded-full opacity-20 blur-2xl">
+                    </div>
+
                     <!-- Mensagem de Sucesso -->
-                    <div id="success-message" class="hidden mb-6 p-4 bg-green-100 dark:bg-green-900 border border-green-400 dark:border-green-700 text-green-700 dark:text-green-200 rounded-lg">
+                    <div id="success-message"
+                        class="hidden mb-6 p-4 bg-green-100 dark:bg-green-900 border border-green-400 dark:border-green-700 text-green-700 dark:text-green-200 rounded-lg">
                         <div class="flex items-center">
                             <i class="fas fa-check-circle text-2xl mr-3"></i>
                             <div>
@@ -436,9 +527,10 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Mensagem de Erro -->
-                    <div id="error-message" class="hidden mb-6 p-4 bg-red-100 dark:bg-red-900 border border-red-400 dark:border-red-700 text-red-700 dark:text-red-200 rounded-lg">
+                    <div id="error-message"
+                        class="hidden mb-6 p-4 bg-red-100 dark:bg-red-900 border border-red-400 dark:border-red-700 text-red-700 dark:text-red-200 rounded-lg">
                         <div class="flex items-center">
                             <i class="fas fa-exclamation-circle text-2xl mr-3"></i>
                             <div>
@@ -447,25 +539,38 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <form id="contact-form">
                         <div class="mb-6">
-                            <label class="block text-sm font-bold text-brand-dark dark:text-gray-300 mb-2">Nome Completo</label>
-                            <input type="text" name="nome" id="nome" class="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-brand-darker border border-gray-200 dark:border-gray-700 text-brand-dark dark:text-white focus:outline-none focus:border-brand-teal transition-colors" placeholder="Seu nome" required>
+                            <label class="block text-sm font-bold text-brand-dark dark:text-gray-300 mb-2">Nome
+                                Completo</label>
+                            <input type="text" name="nome" id="nome"
+                                class="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-brand-darker border border-gray-200 dark:border-gray-700 text-brand-dark dark:text-white focus:outline-none focus:border-brand-teal transition-colors"
+                                placeholder="Seu nome" required>
                         </div>
                         <div class="mb-6">
-                            <label class="block text-sm font-bold text-brand-dark dark:text-gray-300 mb-2">Email Corporativo</label>
-                            <input type="email" name="email" id="email" class="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-brand-darker border border-gray-200 dark:border-gray-700 text-brand-dark dark:text-white focus:outline-none focus:border-brand-teal transition-colors" placeholder="seu@email.com" required>
+                            <label class="block text-sm font-bold text-brand-dark dark:text-gray-300 mb-2">Email
+                                Corporativo</label>
+                            <input type="email" name="email" id="email"
+                                class="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-brand-darker border border-gray-200 dark:border-gray-700 text-brand-dark dark:text-white focus:outline-none focus:border-brand-teal transition-colors"
+                                placeholder="seu@email.com" required>
                         </div>
                         <div class="mb-6">
-                            <label class="block text-sm font-bold text-brand-dark dark:text-gray-300 mb-2">Telefone</label>
-                            <input type="tel" name="telefone" id="telefone" class="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-brand-darker border border-gray-200 dark:border-gray-700 text-brand-dark dark:text-white focus:outline-none focus:border-brand-teal transition-colors" placeholder="(11) 98488-2600">
+                            <label
+                                class="block text-sm font-bold text-brand-dark dark:text-gray-300 mb-2">Telefone</label>
+                            <input type="tel" name="telefone" id="telefone"
+                                class="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-brand-darker border border-gray-200 dark:border-gray-700 text-brand-dark dark:text-white focus:outline-none focus:border-brand-teal transition-colors"
+                                placeholder="(11) 98488-2600">
                         </div>
                         <div class="mb-6">
-                            <label class="block text-sm font-bold text-brand-dark dark:text-gray-300 mb-2">Detalhes do Projeto</label>
-                            <textarea name="mensagem" id="mensagem" class="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-brand-darker border border-gray-200 dark:border-gray-700 text-brand-dark dark:text-white focus:outline-none focus:border-brand-teal transition-colors h-32" placeholder="Tamanho do stand, data do evento..." required></textarea>
+                            <label class="block text-sm font-bold text-brand-dark dark:text-gray-300 mb-2">Detalhes do
+                                Projeto</label>
+                            <textarea name="mensagem" id="mensagem"
+                                class="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-brand-darker border border-gray-200 dark:border-gray-700 text-brand-dark dark:text-white focus:outline-none focus:border-brand-teal transition-colors h-32"
+                                placeholder="Tamanho do stand, data do evento..." required></textarea>
                         </div>
-                        <button type="submit" id="submit-btn" class="w-full py-4 bg-brand-dark text-white font-bold rounded-lg hover:bg-brand-teal transition-colors duration-300 shadow-lg">
+                        <button type="submit" id="submit-btn"
+                            class="w-full py-4 bg-brand-dark text-white font-bold rounded-lg hover:bg-brand-teal transition-colors duration-300 shadow-lg">
                             <span id="btn-text">Enviar Mensagem</span>
                             <span id="btn-loading" class="hidden">
                                 <i class="fas fa-spinner fa-spin"></i> Enviando...
@@ -486,7 +591,8 @@
                         <img src="image/logoBrancoVertical.svg" alt="MHR Stands" class="h-24 w-auto">
                     </a>
                     <p class="text-gray-400 text-sm leading-relaxed">
-                        Transformando espaços vazios em experiências de marca inesquecíveis. Líder em construção de stands e cenografia.
+                        Transformando espaços vazios em experiências de marca inesquecíveis. Líder em construção de
+                        stands e cenografia.
                     </p>
                 </div>
                 <div>
@@ -501,13 +607,16 @@
                 <div>
                     <h4 class="font-bold text-lg mb-4">Siga-nos</h4>
                     <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-teal transition-colors">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-teal transition-colors">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-teal transition-colors">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-teal transition-colors">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-teal transition-colors">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-teal transition-colors">
                             <i class="fab fa-facebook-f"></i>
                         </a>
                     </div>
@@ -594,7 +703,7 @@
         // Mobile Menu
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        
+
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
@@ -631,9 +740,9 @@
         // Trigger counter when in view
         let counted = false;
         const statsSection = document.querySelector('.bg-brand-dark');
-        
+
         window.addEventListener('scroll', () => {
-            if(!counted && window.scrollY + window.innerHeight > statsSection.offsetTop) {
+            if (!counted && window.scrollY + window.innerHeight > statsSection.offsetTop) {
                 animateCounters();
                 counted = true;
             }
@@ -650,49 +759,49 @@
 
         contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            
+
             // Desabilita o botão e mostra loading
             submitBtn.disabled = true;
             btnText.classList.add('hidden');
             btnLoading.classList.remove('hidden');
-            
+
             // Esconde mensagens anteriores
             successMessage.classList.add('hidden');
             errorMessage.classList.add('hidden');
-            
+
             // Coleta os dados do formulário
             const formData = new FormData(contactForm);
-            
+
             try {
                 const response = await fetch('enviar-email.php', {
                     method: 'POST',
                     body: formData
                 });
-                
+
                 const data = await response.json();
-                
+
                 if (data.success) {
                     // Mostra mensagem de sucesso
                     successMessage.classList.remove('hidden');
-                    
+
                     // Limpa o formulário
                     contactForm.reset();
-                    
+
                     // Scroll suave até a mensagem
                     successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    
+
                     // Esconde a mensagem após 10 segundos
                     setTimeout(() => {
                         successMessage.classList.add('hidden');
                     }, 10000);
-                    
+
                 } else {
                     // Mostra mensagem de erro
                     errorText.textContent = data.message || 'Por favor, tente novamente.';
                     errorMessage.classList.remove('hidden');
                     errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }
-                
+
             } catch (error) {
                 // Erro na requisição
                 errorText.textContent = 'Erro ao conectar com o servidor. Verifique sua conexão.';
@@ -708,4 +817,5 @@
 
     </script>
 </body>
+
 </html>
