@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apresentação MHR Stands | Construção de Stands e Cenografia</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f5f5f5;
+      color: #2b313d;
+    }
+
+    /* Toolbar fixa no topo */
+    .toolbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: #2b313d;
+      padding: 15px 30px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .toolbar-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .toolbar a {
+      color: white;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      transition: color 0.3s;
+    }
+
+    .toolbar a:hover {
+      color: #11aaa2;
+    }
+
+    .toolbar button {
+      background: #11aaa2;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.3s;
+    }
+
+    .toolbar button:hover {
+      background: #0d8a83;
+    }
+
+    /* Container principal */
+    .presentation-container {
+      width: 100%;
+      max-width: 100%;
+      margin: 60px 0 0 0;
+      background: white;
+    }
+
+    /* Páginas */
+    .page {
+      min-height: 100vh;
+      padding: 60px 80px;
+      page-break-after: always;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .page:last-child {
+      page-break-after: auto;
+    }
+
+    /* Capa */
+    .cover {
+      background: linear-gradient(135deg, #2b313d 0%, #11aaa2 100%);
+      color: white;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .cover-logo {
+      margin-bottom: 40px;
+    }
+
+    .cover-logo img {
+      height: 120px;
+      filter: brightness(0) invert(1);
+    }
+
+    .cover h1 {
+      font-size: 48px;
+      font-weight: 800;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .cover .tagline {
+      font-size: 24px;
+      font-weight: 300;
+      margin-bottom: 60px;
+      opacity: 0.9;
+    }
+
+    .cover .info {
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 60px;
+    }
+
+    .cover .info-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Cabeçalho de página interna */
+    .page-header {
+      border-bottom: 3px solid #11aaa2;
+      padding-bottom: 20px;
+      margin-bottom: 30px;
+    }
+
+    .page-header h2 {
+      color: #2b313d;
+      font-size: 32px;
+      font-weight: 700;
+    }
+
+    .page-header .subtitle {
+      color: #11aaa2;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 5px;
+    }
+
+    /* Conteúdo */
+    .content p {
+      line-height: 1.8;
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+
+    .content strong {
+      color: #11aaa2;
+    }
+
+    .content ul {
+      list-style: none;
+      margin: 20px 0;
+    }
+
+    .content ul li {
+      padding: 12px 0;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .content ul li i {
+      color: #11aaa2;
+      font-size: 20px;
+      min-width: 20px;
+    }
+
+    /* Grid de serviços */
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin: 30px 0;
+    }
+
+    .service-card {
+      border: 2px solid #e5e5e5;
+      border-radius: 10px;
+      padding: 25px;
+      transition: all 0.3s;
+    }
+
+    .service-card:hover {
+      border-color: #11aaa2;
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(17, 170, 162, 0.2);
+    }
+
+    .service-card h3 {
+      color: #2b313d;
+      font-size: 18px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .service-card h3 i {
+      color: #11aaa2;
+    }
+
+    .service-card p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #666;
+      margin: 0;
+      text-align: left;
+    }
+
+    /* Estatísticas */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin: 40px 0;
+    }
+
+    .stat-box {
+      background: linear-gradient(135deg, #2b313d 0%, #11aaa2 100%);
+      color: white;
+      padding: 30px 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .stat-box .number {
+      font-size: 42px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .stat-box .label {
+      font-size: 12px;
+      opacity: 0.9;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Portfolio grid */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin: 30px 0;
+    }
+
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      height: 200px;
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .portfolio-item .overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(43, 49, 61, 0.9), transparent);
+      color: white;
+      padding: 15px;
+      font-weight: 600;
+    }
+
+    /* Diferenciais */
+    .diferenciais-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+      margin: 30px 0;
+    }
+
+    .diferencial-item {
+      display: flex;
+      gap: 15px;
+    }
+
+    .diferencial-item .icon {
+      background: #11aaa2;
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+
+    .diferencial-item .text h4 {
+      color: #2b313d;
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+    .diferencial-item .text p {
+      font-size: 13px;
+      color: #666;
+      line-height: 1.5;
+      margin: 0;
+      text-align: left;
+    }
+
+    /* Rodapé da página */
+    .page-footer {
+      margin-top: auto;
+      padding-top: 30px;
+      border-top: 1px solid #e5e5e5;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: #999;
+    }
+
+    .page-footer .logo {
+      height: 40px;
+    }
+
+    /* Contato */
+    .contact-info {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin: 40px 0;
+    }
+
+    .contact-item {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .contact-item .icon-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #11aaa2;
+      font-weight: 600;
+    }
+
+    .contact-item .icon-label i {
+      font-size: 20px;
+    }
+
+    .contact-item .value {
+      font-size: 18px;
+      color: #2b313d;
+      font-weight: 600;
+    }
+
+    /* CSS para impressão */
+    @media print {
+
+      /* CRÍTICO: Forçar impressão de cores e backgrounds */
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+      }
+
+      body {
+        background: white !important;
+      }
+
+      .toolbar {
+        display: none !important;
+      }
+
+      .presentation-container {
+        margin: 0 !important;
+        box-shadow: none !important;
+        max-width: 100% !important;
+        width: 100% !important;
+      }
+
+      .page {
+        page-break-after: always;
+        page-break-inside: avoid;
+        min-height: auto !important;
+        padding: 15mm !important;
+      }
+
+      .page:last-child {
+        page-break-after: auto;
+      }
+
+      /* Forçar todos os backgrounds e cores */
+      .cover {
+        background: linear-gradient(135deg, #2b313d 0%, #11aaa2 100%) !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      .stat-box {
+        background: linear-gradient(135deg, #2b313d 0%, #11aaa2 100%) !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      .diferencial-item .icon {
+        background: #11aaa2 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      .page-header {
+        border-bottom: 3px solid #11aaa2 !important;
+      }
+
+      .service-card {
+        border: 2px solid #e5e5e5 !important;
+        transform: none !important;
+        box-shadow: none !important;
+      }
+
+      /* Desabilitar hover effects na impressão */
+      .service-card:hover {
+        transform: none !important;
+        box-shadow: none !important;
+      }
+
+      /* Garantir que imagens sejam impressas */
+      img {
+        max-width: 100% !important;
+        page-break-inside: avoid !important;
+      }
+
+      @page {
+        size: A4 landscape;
+        margin: 0;
+      }
+    }
+
+    /* Responsivo */
+    @media (max-width: 768px) {
+      .presentation-container {
+        margin: 60px 0 0 0;
+      }
+
+      .page {
+        min-height: auto;
+        padding: 40px 25px;
+      }
+
+      .cover h1 {
+        font-size: 32px;
+      }
+
+      .cover .tagline {
+        font-size: 18px;
+      }
+
+      .cover .info {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .services-grid,
+      .diferenciais-list,
+      .contact-info {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .toolbar {
+        padding: 10px 15px;
+      }
+
+      .toolbar-left {
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Toolbar -->
+  <div class="toolbar">
+    <div class="toolbar-left">
+      <a href="index.html">
+        <i class="fas fa-arrow-left"></i>
+        Voltar ao Site
+      </a>
+    </div>
+    <button onclick="window.print()">
+      <i class="fas fa-download"></i>
+      Baixar PDF
+    </button>
+  </div>
+
+  <!-- Container da Apresentação -->
+  <div class="presentation-container">
+
+    <!-- Página 1: Capa -->
+    <div class="page cover">
+      <div class="cover-logo">
+        <img src="image/logoBrancoHorizontal.svg" alt="MHR Stands">
+      </div>
+      <h1>Apresentação<br>Institucional</h1>
+      <p class="tagline">Construindo Espaços que Marcam Presença</p>
+
+      <div class="info">
+        <div class="info-item">
+          <i class="fas fa-calendar"></i>
+          <span>30 Anos de Mercado</span>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-trophy"></i>
+          <span>350+ Projetos Entregues</span>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-star"></i>
+          <span>98% Satisfação</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Página 2: Quem Somos -->
+    <div class="page">
+      <div class="page-header">
+        <div class="subtitle">Sobre Nós</div>
+        <h2>Quem Somos</h2>
+      </div>
+
+      <div class="content">
+        <p>
+          A <strong>MHR Stands</strong> é uma empresa especializada na montagem de <strong>Stands em eventos, Showroom,
+            Quiosques e Displays</strong> em diversos segmentos do mercado.
+        </p>
+
+        <p>
+          Fundada com o objetivo de proporcionar ao cliente uma experiência única, desde o primeiro atendimento até a
+          execução final do trabalho, a MHR Stands consolidou-se como referência no setor de construção de stands e
+          cenografia.
+        </p>
+
+        <p>
+          Atuamos <strong>há mais de 30 anos no mercado</strong> na área de desenvolvimento de projetos, execução e
+          entrega de trabalhos. Nossa bagagem inclui projetos desenvolvidos em diversas montadoras do ramo de eventos,
+          garantindo vasta experiência e profissionais capacitados para atender sua demanda.
+        </p>
+
+        <h3 style="color: #11aaa2; margin: 30px 0 20px;">Nossos Valores</h3>
+
+        <ul>
+          <li>
+            <i class="fas fa-check-circle"></i>
+            <span><strong>Excelência:</strong> Compromisso com a qualidade em cada detalhe</span>
+          </li>
+          <li>
+            <i class="fas fa-check-circle"></i>
+            <span><strong>Inovação:</strong> Sempre buscando as melhores soluções e tecnologias</span>
+          </li>
+          <li>
+            <i class="fas fa-check-circle"></i>
+            <span><strong>Pontualidade:</strong> Cumprimento rigoroso de prazos e cronogramas</span>
+          </li>
+          <li>
+            <i class="fas fa-check-circle"></i>
+            <span><strong>Confiabilidade:</strong> Parceria sólida e transparente com nossos clientes</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="page-footer">
+        <img src="image/logoHorizontal.svg" alt="MHR Stands" class="logo">
+        <span>www.mhrstands.com.br</span>
+      </div>
+    </div>
+
+    <!-- Página 3: Serviços -->
+    <div class="page">
+      <div class="page-header">
+        <div class="subtitle">O Que Fazemos</div>
+        <h2>Nossos Serviços</h2>
+      </div>
+
+      <div class="content">
+        <p>
+          Oferecemos soluções completas para eventos, feiras e exposições, desde o conceito inicial até a desmontagem.
+          Nossa equipe especializada garante que cada etapa seja executada com precisão e profissionalismo.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <h3><i class="fas fa-pencil-ruler"></i> Design & Projeto 3D</h3>
+          <p>Desenvolvemos projetos exclusivos com renderização 3D realista para que você visualize cada detalhe antes
+            da montagem.</p>
+        </div>
+
+        <div class="service-card">
+          <h3><i class="fas fa-hammer"></i> Construção & Montagem</h3>
+          <p>Equipe especializada em marcenaria, elétrica e acabamento. Garantimos a entrega pontual e acabamento
+            impecável.</p>
+        </div>
+
+        <div class="service-card">
+          <h3><i class="fas fa-truck-loading"></i> Logística & Transporte</h3>
+          <p>Cuidamos de todo o transporte de materiais e equipamentos com segurança e eficiência.</p>
+        </div>
+
+        <div class="service-card">
+          <h3><i class="fas fa-headset"></i> Suporte Técnico</h3>
+          <p>Acompanhamento completo durante o evento com equipe técnica especializada à disposição.</p>
+        </div>
+
+        <div class="service-card">
+          <h3><i class="fas fa-store"></i> Showrooms & Quiosques</h3>
+          <p>Desenvolvimento de espaços comerciais permanentes e temporários com design diferenciado.</p>
+        </div>
+
+        <div class="service-card">
+          <h3><i class="fas fa-palette"></i> Cenografia</h3>
+          <p>Criação de ambientes cenográficos para shows, eventos corporativos e lançamentos de produtos.</p>
+        </div>
+      </div>
+
+      <div class="page-footer">
+        <img src="image/logoHorizontal.svg" alt="MHR Stands" class="logo">
+        <span>www.mhrstands.com.br</span>
+      </div>
+    </div>
+
+    <!-- Página 4: Diferenciais -->
+    <div class="page">
+      <div class="page-header">
+        <div class="subtitle">Por Que Nos Escolher</div>
+        <h2>Nossos Diferenciais</h2>
+      </div>
+
+      <div class="content">
+        <p>
+          A MHR Stands se destaca no mercado pela combinação de experiência, qualidade e atendimento personalizado.
+          Conheça os principais diferenciais que fazem de nós a escolha ideal para seu próximo projeto:
+        </p>
+      </div>
+
+      <div class="diferenciais-list">
+        <div class="diferencial-item">
+          <div class="icon">
+            <i class="fas fa-award"></i>
+          </div>
+          <div class="text">
+            <h4>Experiência Comprovada</h4>
+            <p>30 anos de atuação no mercado com mais de 350 projetos entregues com excelência em diversos segmentos.
+            </p>
+          </div>
+        </div>
+
+        <div class="diferencial-item">
+          <div class="icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <div class="text">
+            <h4>Equipe Especializada</h4>
+            <p>Profissionais capacitados e treinados nas melhores práticas de construção e montagem de stands.</p>
+          </div>
+        </div>
+
+        <div class="diferencial-item">
+          <div class="icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="text">
+            <h4>Pontualidade</h4>
+            <p>Cumprimento rigoroso de prazos e cronogramas, sem comprometer a qualidade do acabamento.</p>
+          </div>
+        </div>
+
+        <div class="diferencial-item">
+          <div class="icon">
+            <i class="fas fa-cube"></i>
+          </div>
+          <div class="text">
+            <h4>Projeto 3D Detalhado</h4>
+            <p>Visualize seu stand antes da montagem com renderizações realistas e detalhadas.</p>
+          </div>
+        </div>
+
+        <div class="diferencial-item">
+          <div class="icon">
+            <i class="fas fa-tools"></i>
+          </div>
+          <div class="text">
+            <h4>Acabamento Impecável</h4>
+            <p>Atenção aos mínimos detalhes garantindo um resultado final de alto padrão estético.</p>
+          </div>
+        </div>
+
+        <div class="diferencial-item">
+          <div class="icon">
+            <i class="fas fa-handshake"></i>
+          </div>
+          <div class="text">
+            <h4>Atendimento Personalizado</h4>
+            <p>Consultoria dedicada do início ao fim, entendendo e atendendo suas necessidades específicas.</p>
+          </div>
+        </div>
+
+        <div class="diferencial-item">
+          <div class="icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <div class="text">
+            <h4>Segurança e Qualidade</h4>
+            <p>Uso de materiais de primeira qualidade e cumprimento de todas as normas de segurança.</p>
+          </div>
+        </div>
+
+        <div class="diferencial-item">
+          <div class="icon">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <div class="text">
+            <h4>Soluções Criativas</h4>
+            <p>Ideias inovadoras que destacam sua marca e encantam seu público-alvo.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-footer">
+        <img src="image/logoHorizontal.svg" alt="MHR Stands" class="logo">
+        <span>www.mhrstands.com.br</span>
+      </div>
+    </div>
+
+    <!-- Página 5: Portfólio -->
+    <div class="page">
+      <div class="page-header">
+        <div class="subtitle">Nosso Trabalho</div>
+        <h2>Portfólio de Projetos</h2>
+      </div>
+
+      <div class="content">
+        <p>
+          Conheça alguns dos projetos que desenvolvemos para empresas de diversos segmentos. Cada stand é único e criado
+          especialmente para atender as necessidades e objetivos de nossos clientes.
+        </p>
+      </div>
+
+      <div class="portfolio-grid">
+        <div class="portfolio-item">
+          <img src="image/projects/FC.jpeg" alt="FC">
+          <div class="overlay">FC</div>
+        </div>
+        <div class="portfolio-item">
+          <img src="image/projects/Leistung1.png" alt="Leistung">
+          <div class="overlay">Leistung</div>
+        </div>
+        <div class="portfolio-item">
+          <img src="image/projects/ecofolhas.png" alt="Ecofolhas">
+          <div class="overlay">Ecofolhas</div>
+        </div>
+        <div class="portfolio-item">
+          <img src="image/projects/implastic.jpeg" alt="Implastic">
+          <div class="overlay">Implastic</div>
+        </div>
+        <div class="portfolio-item">
+          <img src="image/projects/itubombas.png" alt="Itubombas">
+          <div class="overlay">Itubombas</div>
+        </div>
+        <div class="portfolio-item">
+          <img src="image/projects/ramos.png" alt="Ramos">
+          <div class="overlay">Ramos</div>
+        </div>
+        <div class="portfolio-item">
+          <img src="image/projects/unilife.png" alt="Unilife">
+          <div class="overlay">Unilife</div>
+        </div>
+        <div class="portfolio-item">
+          <img src="image/projects/zrz.png" alt="ZRZ">
+          <div class="overlay">ZRZ</div>
+        </div>
+      </div>
+
+      <div
+        style="margin-top: 30px; padding: 20px; background: #f8f8f8; border-left: 4px solid #11aaa2; border-radius: 5px;">
+        <p style="margin: 0; color: #2b313d; font-style: italic;">
+          <strong>💡 Cada projeto é único:</strong> Desenvolvemos soluções personalizadas que refletem a identidade da
+          sua marca e maximizam o impacto visual do seu espaço.
+        </p>
+      </div>
+
+      <div class="page-footer">
+        <img src="image/logoHorizontal.svg" alt="MHR Stands" class="logo">
+        <span>www.mhrstands.com.br</span>
+      </div>
+    </div>
+
+    <!-- Página 6: Números -->
+    <div class="page">
+      <div class="page-header">
+        <div class="subtitle">Resultados</div>
+        <h2>Nossa História em Números</h2>
+      </div>
+
+      <div class="content">
+        <p>
+          Números que refletem nossa trajetória de sucesso e o compromisso com a excelência em cada projeto realizado.
+        </p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="number">30+</div>
+          <div class="label">Anos de Mercado</div>
+        </div>
+        <div class="stat-box">
+          <div class="number">350+</div>
+          <div class="label">Projetos Entregues</div>
+        </div>
+        <div class="stat-box">
+          <div class="number">98%</div>
+          <div class="label">Clientes Satisfeitos</div>
+        </div>
+        <div class="stat-box">
+          <div class="number">12</div>
+          <div class="label">Prêmios de Design</div>
+        </div>
+      </div>
+
+      <div style="margin-top: 50px;">
+        <h3 style="color: #11aaa2; margin-bottom: 25px;">Áreas de Atuação</h3>
+        <div class="services-grid">
+          <div style="padding: 15px; background: #f8f8f8; border-radius: 8px;">
+            <h4 style="color: #2b313d; margin-bottom: 10px;">Feiras e Eventos</h4>
+            <p style="font-size: 13px; color: #666; margin: 0;">Stands para exposições, congressos e feiras comerciais
+              de todos os portes.</p>
+          </div>
+          <div style="padding: 15px; background: #f8f8f8; border-radius: 8px;">
+            <h4 style="color: #2b313d; margin-bottom: 10px;">Eventos Corporativos</h4>
+            <p style="font-size: 13px; color: #666; margin: 0;">Ambientação e cenografia para lançamentos, convenções e
+              workshops.</p>
+          </div>
+          <div style="padding: 15px; background: #f8f8f8; border-radius: 8px;">
+            <h4 style="color: #2b313d; margin-bottom: 10px;">Showrooms</h4>
+            <p style="font-size: 13px; color: #666; margin: 0;">Espaços comerciais permanentes e temporários com
+              identidade única.</p>
+          </div>
+          <div style="padding: 15px; background: #f8f8f8; border-radius: 8px;">
+            <h4 style="color: #2b313d; margin-bottom: 10px;">Quiosques</h4>
+            <p style="font-size: 13px; color: #666; margin: 0;">Pontos de venda e atendimento para shopping centers e
+              eventos.</p>
+          </div>
+        </div>
+      </div>
+
+      <div
+        style="margin-top: 50px; padding: 25px; background: linear-gradient(135deg, #2b313d 0%, #11aaa2 100%); color: white; border-radius: 10px; text-align: center;">
+        <h3 style="font-size: 24px; margin-bottom: 10px;">Parceria de Sucesso</h3>
+        <p style="font-size: 16px; opacity: 0.9; margin: 0;">Trabalhamos com as principais montadoras e organizadores de
+          eventos do Brasil</p>
+      </div>
+
+      <div class="page-footer">
+        <img src="image/logoHorizontal.svg" alt="MHR Stands" class="logo">
+        <span>www.mhrstands.com.br</span>
+      </div>
+    </div>
+
+    <!-- Página 7: Contato -->
+    <div class="page">
+      <div class="page-header">
+        <div class="subtitle">Fale Conosco</div>
+        <h2>Entre em Contato</h2>
+      </div>
+
+      <div class="content">
+        <p>
+          Estamos prontos para transformar suas ideias em realidade. Entre em contato conosco e solicite um orçamento
+          sem compromisso. Nossa equipe está à disposição para atender suas necessidades.
+        </p>
+      </div>
+
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="icon-label">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Endereço</span>
+          </div>
+          <div class="value">Av. das Nações, 1500<br>São Paulo - SP</div>
+        </div>
+
+        <div class="contact-item">
+          <div class="icon-label">
+            <i class="fas fa-phone-alt"></i>
+            <span>Telefone</span>
+          </div>
+          <div class="value">+55 11 98488-2600</div>
+        </div>
+
+        <div class="contact-item">
+          <div class="icon-label">
+            <i class="fas fa-envelope"></i>
+            <span>E-mail</span>
+          </div>
+          <div class="value">contato@mhrstands.com.br</div>
+        </div>
+
+        <div class="contact-item">
+          <div class="icon-label">
+            <i class="fas fa-globe"></i>
+            <span>Website</span>
+          </div>
+          <div class="value">www.mhrstands.com.br</div>
+        </div>
+      </div>
+
+      <div
+        style="margin-top: 50px; padding: 30px; background: #f8f8f8; border-radius: 10px; border-left: 5px solid #11aaa2;">
+        <h3 style="color: #2b313d; margin-bottom: 15px;">Solicite um Orçamento</h3>
+        <p style="color: #666; margin-bottom: 20px;">
+          Preencha nosso formulário online ou entre em contato diretamente. Retornamos em até 24 horas com uma proposta
+          personalizada para seu projeto.
+        </p>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li style="padding: 8px 0; color: #2b313d;"><i class="fas fa-check"
+              style="color: #11aaa2; margin-right: 10px;"></i> Orçamento sem compromisso</li>
+          <li style="padding: 8px 0; color: #2b313d;"><i class="fas fa-check"
+              style="color: #11aaa2; margin-right: 10px;"></i> Projeto 3D incluso</li>
+          <li style="padding: 8px 0; color: #2b313d;"><i class="fas fa-check"
+              style="color: #11aaa2; margin-right: 10px;"></i> Consultoria especializada</li>
+          <li style="padding: 8px 0; color: #2b313d;"><i class="fas fa-check"
+              style="color: #11aaa2; margin-right: 10px;"></i> Atendimento personalizado</li>
+        </ul>
+      </div>
+
+      <div
+        style="margin-top: 50px; text-align: center; padding: 40px; background: linear-gradient(135deg, #2b313d 0%, #11aaa2 100%); color: white; border-radius: 10px;">
+        <h2 style="font-size: 28px; margin-bottom: 15px;">Pronto para seu Próximo Projeto?</h2>
+        <p style="font-size: 16px; opacity: 0.9; margin-bottom: 25px;">
+          Transforme sua participação em eventos em uma experiência memorável
+        </p>
+        <div style="display: flex; gap: 20px; justify-content: center; align-items: center; flex-wrap: wrap;">
+          <i class="fas fa-phone-alt" style="font-size: 24px;"></i>
+          <span style="font-size: 22px; font-weight: 700;">+55 11 98488-2600</span>
+        </div>
+      </div>
+
+      <div class="page-footer">
+        <img src="image/logoHorizontal.svg" alt="MHR Stands" class="logo">
+        <span>www.mhrstands.com.br | contato@mhrstands.com.br</span>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+
+</html>
